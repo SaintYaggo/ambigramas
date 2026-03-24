@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>cenit-nadir</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background-color: #e5e3de;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 10vh 10vw;
+  }
+  .container {
+    max-width: 80vw;
+    max-height: 80vh;
+    cursor: pointer;
+  }
+  .container img {
+    display: block;
+    max-width: 80vw;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+    user-select: none;
+    -webkit-user-drag: none;
+    transition: transform 0.7s ease-in-out;
+    transform-origin: center center;
+  }
+  .container img.active {
+    transform: rotate(90deg);
+  }
+</style>
+</head>
+<body>
+<div class="container" id="container">
+  <img src="cenit-nadir.png" id="img" alt="cenit-nadir">
+</div>
+<script>
+  let toggled = false;
+  document.getElementById('container').addEventListener('click', () => {
+    toggled = !toggled;
+    document.getElementById('img').classList.toggle('active', toggled);
+  });
+</script>
+</body>
+</html>
